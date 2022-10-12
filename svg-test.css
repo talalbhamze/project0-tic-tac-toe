@@ -1,4 +1,9 @@
+/*const Otext = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle fill="none" cx="50" cy="50" stroke-width="6" r="45"/></svg>`;
 
+const Xtext =  ` <svg id="x" viewBox="0 0 130.2 130.2" xmlns="http://www.w3.org/2000/svg">
+<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" x1="34.4" y1="38" x2="95.8" y2="92.3"/>
+ <line class="path line second" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" x1="95.8" y1="38" x2="34.4" y2="92.3"/>
+ </svg>`*/
 /* svg tag */
 
 circle {

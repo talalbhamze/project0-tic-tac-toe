@@ -1,21 +1,12 @@
-// const Otext = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle fill="none" cx="50" cy="50" stroke-width="6" r="45"/></svg>`;
-
-// const Xtext =  ` <svg id="x" viewBox="0 0 130.2 130.2" xmlns="http://www.w3.org/2000/svg">
-// <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" x1="34.4" y1="38" x2="95.8" y2="92.3"/>
-// <line class="path line second" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" x1="95.8" y1="38" x2="34.4" y2="92.3"/>
-// </svg>`
-
-let gameOver= false; 
-let numPlays=0;
-let currentPlayer= "X";  // by default
-let currentPlays = {
+    let gameOver= false; 
+    let numPlays=0;
+    let currentPlayer= "X";  // by default
+    let currentPlays = {
     "X":[],
     "O" :[]
-}
+    }
 
-
-
-const winPos=[
+    const winPos=[
     ["a" , "b" , "c"],
     ["d" , "e" , "f"],
     ["g" , "h" , "i"],
@@ -25,10 +16,12 @@ const winPos=[
     ["a" , "e" , "i"],
     ["c" , "e" , "g"]
     ]
-
-    
+const audio = $("#mysoundclip")[0];
+;
 $(document).ready (function(){
-    $('.cell').click(function(){
+    $('.cell , button ').click(function(){
+        audio.play();
+    
     
         if ( gameOver || $(this).text()!=""){
             return; 
@@ -38,8 +31,12 @@ $(document).ready (function(){
         $(this).text(currentPlayer); 
         currentPlays[currentPlayer].push($(this).attr('id'));
 
+        // checking Scores 
         const player1Score = $('#p-1-wins').html();
         const player2Score = $('#p-2-wins').html();
+
+
+        //find the winner 
         if (isWinner() && currentPlayer === 'X'){
             $(".winner").text("Winner: " + isWinner())
             $('#p-1-wins').html(Number(player1Score) + 1);
@@ -77,16 +74,16 @@ for( let i=0 ; i< winPos.length;i++){
             isWinner = false;
             break;
 
-        }
+            }
 
 
+            }
+        if( isWinner)
+        return currentPlayer;
+        //if (currentPlays[currentPlayer].sort().toString() === winPos[i].toString()){
+        //return currentPlayer ; 
     }
-    if( isWinner)
-    return currentPlayer;
-    //if (currentPlays[currentPlayer].sort().toString() === winPos[i].toString()){
- //return currentPlayer ; 
-}
-return false;
+        return false;
 }
 
 
@@ -97,25 +94,22 @@ function isDraw(){
 
         if (numPlays === 9 && isWinner() === false){
             return true;
-
-        }
-        return false ;
+            }
+            return false ;
 }
 
 $('.reset').click(function(){
   
-numPlays=0;
-gameOver=false;
-currentPlayer= "X"; 
- currentPlays = {
-    "X":[],
-    "O" :[]
-}
-    $(".winner").text("")
-    $(".turn").text("X's Turn")
-    $('.cell').html("");
-    $('#p-2-wins').html("0");
-    $('#p-1-wins').html("0");
+    numPlays=0;
+    gameOver=false;
+    currentPlayer= "X"; 
+    currentPlays = {"X":[],"O" :[]}
+
+        $(".winner").text("")
+        $(".turn").text("X's Turn")
+        $('.cell').html("");
+        $('#p-2-wins').html("0");
+        $('#p-1-wins').html("0");
 
 
 })
@@ -124,14 +118,12 @@ $('.play').click(function(){
     numPlays=0;
     gameOver=false;
     currentPlayer= "X"; 
-     currentPlays = {
-        "X":[],
-        "O" :[]
-    }
+    currentPlays = {"X":[],"O" :[]}
+
         $(".winner").text("")
         $(".turn").text("X's Turn")
         $('.cell').html("");
-    })
+})
 
 
 
