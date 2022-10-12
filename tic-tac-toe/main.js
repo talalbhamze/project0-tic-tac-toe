@@ -66,8 +66,8 @@ $(document).ready (function(){
 
 
 function isWinner(){
-if(numPlays<5)
-return;
+// if(numPlays<5)
+// return;
 
 for( let i=0 ; i< winPos.length;i++){
     let isWinner = true ; 
@@ -86,6 +86,7 @@ for( let i=0 ; i< winPos.length;i++){
     //if (currentPlays[currentPlayer].sort().toString() === winPos[i].toString()){
  //return currentPlayer ; 
 }
+return false;
 }
 
 
@@ -98,6 +99,7 @@ function isDraw(){
             return true;
 
         }
+        return false ;
 }
 
 $('.reset').click(function(){
