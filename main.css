@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Silkscreen&display=swap');
+
+
+body{
+  background-color: antiquewhite;
+  
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.title {
+    line-height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 80px;
+    font-family: 'Pacifico', cursive;
+}
+h4{
+    line-height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Pacifico', cursive;
+}
+
+.game-board {
+    width: 400px;
+    height: 400px;
+    display: grid;/* that what allow us to set the cell 3X3 */
+}
+/*outside Box -  around the board */
+.game-area {
+    width: fit-content;
+    height: fit-content;
+    padding: 50px;
+    box-shadow: 0px 0px 14px 2px black;
+    border-radius: 25px; /* sides corners */
+    margin: auto;
+    
+}
+/* inside */
+.cell {
+    text-align: center;
+    font-size: 100px;
+    max-width: 170px;
+    min-width: 130px;
+    max-height: 170px;
+    min-height: 130px;
+    border-width: thick !important;
+}
+
+/* setting the position of the grid */
+#a {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#b {
+    grid-column: 2;
+    grid-row: 1;
+    border-right: solid;
+    border-left: solid;
+}
+
+#c {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#d {
+    grid-column: 1;
+    grid-row: 2;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+#e {
+    grid-column: 2;
+    grid-row: 2;
+    border: solid;
+}
+
+#f {
+    grid-column: 3;
+    grid-row: 2;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+#g {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#h {
+    grid-column: 2;
+    grid-row: 3;
+    border-right: solid;
+    border-left: solid;
+}
+
+#i {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+p {
+    font-family: 'Pacifico', cursive;
+    position: relative;
+    top: 2px;
+}
+
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 5px 10px 5px 10px;
+    border-radius: 7px;
+    outline: none;
+    height: 40px;
+    position: relative;
+    top: 10px;
+
+}
+.info{
+margin-top: 50px;
+display: flex;/* allows us to space the elements arround if you reset/ winner /turn  */
+justify-content: space-around ;
+border:inset thick black;
+border-radius: 10px;
+}

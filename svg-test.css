@@ -1,0 +1,37 @@
+
+/* svg tag */
+
+circle {
+    stroke: #2f3d4c;
+    stroke-linecap: round;
+    stroke-dasharray: 1000;/* stroke animation for 1000 stroke  */
+    transform-origin: 50% 50%;/* it will transfrom from the center of it */
+    transform: scale(.65);/* scale inside the cell so it doesnt touch the edge */
+    animation: dash .65s ease-in-out forwards; /* starts slow gets faster and end slow , forward means maintain the end effect of the animation */
+
+}
+
+
+.path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+}
+
+.path.line {
+    stroke-dashoffset: 1000;
+    animation: dash 0.65s ease-in-out forwards;
+}
+/* time cut between the 2 lines in the X so they dont get drawn in the same time */ 
+.second {
+    animation-delay: 0.15s !important;
+}
+/*animation */ 
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
