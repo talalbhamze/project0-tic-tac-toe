@@ -1,7 +1,7 @@
     let gameOver= false; 
     let numPlays=0;
     let currentPlayer= "X";  // by default
-    let currentPlays = {
+    let currentPlays = { // the position we player click - suppose to be empty
     "X":[],
     "O" :[]
     }
@@ -17,10 +17,13 @@
     ["c" , "e" , "g"]
     ]
 const audio = $("#mysoundclip")[0];
+const audio2 = $("#gamefinish")[0];
+
 ;
 $(document).ready (function(){
     $('.cell , button ').click(function(){
         audio.play();
+
     
     
         if ( gameOver || $(this).text()!=""){
@@ -28,8 +31,11 @@ $(document).ready (function(){
         }
         numPlays++
 
-        $(this).text(currentPlayer); 
-        currentPlays[currentPlayer].push($(this).attr('id'));
+
+
+        $(this).text(currentPlayer); // to display the Player , each time someone click 
+        
+        currentPlays[currentPlayer].push($(this).attr('id')); // to show the position of the X and o 
 
         // checking Scores 
         const player1Score = $('#p-1-wins').html();
@@ -41,15 +47,50 @@ $(document).ready (function(){
             $(".winner").text("Winner: " + isWinner())
             $('#p-1-wins').html(Number(player1Score) + 1);
             gameOver = true;
+            audio2.play();
+            swal({
+                title: "Good job!",
+                text: "X Player you DIDDDD IT ",
+                icon: "success",
+                button: " Play Again",
+              }).then(function(){
+                $('.play').click()
+
+              })
         }
         if (isWinner() && currentPlayer === 'O'){
             $(".winner").text("Winner: " + isWinner())
             $('#p-2-wins').html(Number(player2Score) + 1);
             gameOver = true;
+            audio2.play();
+            swal({
+                title: "Good job!",
+                text: "OH!! 'O' Made it this Time  ",
+                icon: "success",
+                button : " play again" ,
+                
+                
+              }).then(function(){
+                $('.play').click()
+                $(".swal").css('background-color', '#000');
+
+              })
+              
+
         }
         if (isDraw()){
             //alert('Draw!')
             $(".winner").text("DRAW!! Play Again")
+            swal({
+                title: "Draw!",
+                text: "Let's try Again!",
+                icon: "error",
+                button: " Play Again",
+              }).then(function(){
+                $('.play').click()
+
+              })
+
         }
         currentPlayer = (currentPlayer === 'X') ? 'O' : 'X' ;  //each time player click we need to change the player ( if 1st player x else o or x) 
        // turn 

@@ -139,3 +139,6 @@ justify-content: space-around ;
 border:inset thick black;
 border-radius: 10px;
 }
+.swal{
+    background-color: #555555;
+}
